@@ -91,6 +91,11 @@ def game_logic(window, PLAYER_ONE, PLAYER_TWO, win_state, current_player):
                             game_over = True
     return event
 
+def cosa( ):
+    pass
+
+# nuevo codigo para prueba 
+
 
 if __name__ == "__main__":
     main()
