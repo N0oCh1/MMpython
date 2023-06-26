@@ -96,6 +96,9 @@ def cosa( ):
 
 # nuevo codigo para prueba 
 
+def mascosa():
+    pass
+
 
 if __name__ == "__main__":
     main()
