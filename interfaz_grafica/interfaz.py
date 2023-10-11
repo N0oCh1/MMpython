@@ -11,6 +11,7 @@ def main():
     current_player = PLAYER_ONE
     button_size = (8,4)
     event = "-REPEAT-" 
+    # if you press (REPEAT button) repeat the game 
     while event == "-REPEAT-":
         window = window_set_layout(tictactou(button_size))
         event = game_logic(window, PLAYER_ONE, PLAYER_TWO, win_state,current_player)
@@ -56,14 +57,17 @@ def game_logic(window, PLAYER_ONE, PLAYER_TWO, win_state, current_player):
     game_over = False
     while True:
         event, value = window.read()
-        
+        # if you win, button do nothing
         if game_over:
             if window.Element(event).ButtonText == "":
                 pass
             if event == sg.WIN_CLOSED or event == "-STOP-" or event == "-REPEAT-":
                 break
+        # quit game
         if event == sg.WIN_CLOSED or event == "-STOP-" or event == "-REPEAT-":
             break
+        
+        # what player go first
         if window.Element(event).ButtonText == "" and game_over == False:
             window["-PLAYER-"].update("player 2 go", text_color = "blue")
             window.Element(event).update(text = current_player)
@@ -74,6 +78,7 @@ def game_logic(window, PLAYER_ONE, PLAYER_TWO, win_state, current_player):
                 window["-PLAYER-"].update("player 1 go", text_color = "red")
                 current_player = PLAYER_ONE
             print (event, value)
+            # what player win
             for a in win_state:
                 player_one = 0
                 player_two = 0
